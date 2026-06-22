@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arena Lazer - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-page">
+
+    <div class="login-container">
+        <header class="login-header">
+            <h1>🏟️ Arena Lazer</h1>
+            <p>Complexos Esportivos Territoriais do Brasil</p>
+        </header>
+
+        <div id="mensagem-auth" class="mensagem" style="display: none;"></div>
+
+        <section id="secao-login" class="auth-card">
+            <h2>Acessar Conta</h2>
+            <form id="form-login">
+                <div class="input-group">
+                    <label for="login-email">E-mail:</label>
+                    <input type="email" id="login-email" required placeholder="seuemail@exemplo.com">
+                </div>
+                <div class="input-group">
+                    <label for="login-senha">Senha:</label>
+                    <input type="password" id="login-senha" required placeholder="Digite sua senha">
+                </div>
+                <div class="esqueceu-senha-link">
+                    <a href="#" id="ir-para-recuperar">Esqueceu sua senha?</a>
+                </div>
+                <button type="submit" class="btn-primary">Entrar no Sistema</button>
+            </form>
+
+            <div class="divisor"><span>ou</span></div>
+
+            <button type="button" id="btn-google" class="btn-google">
+                <i class="fab fa-google"></i> Entrar com o Google
+            </button>
+
+            <p class="auth-toggle">Não tem uma conta? <a href="#" id="ir-para-cadastro">Cadastre-se</a></p>
+        </section>
+
+        <section id="secao-cadastro" class="auth-card style-hidden">
+            <h2>Criar Conta Nacional</h2>
+            <form id="form-cadastro">
+                <div class="input-group">
+                    <label for="cad-nome">Nome Completo:</label>
+                    <input type="text" id="cad-nome" required placeholder="Ex: João Silva">
+                </div>
+                <div class="input-group">
+                    <label for="cad-email">E-mail:</label>
+                    <input type="email" id="cad-email" required placeholder="nome@exemplo.com">
+                </div>
+                <div class="input-group">
+                    <label for="cad-senha">Crie uma Senha:</label>
+                    <input type="password" id="cad-senha" required placeholder="Mínimo 6 caracteres">
+                </div>
+                <button type="submit" class="btn-success">Finalizar Cadastro</button>
+            </form>
+            <p class="auth-toggle">Já possui uma conta? <a href="#" id="ir-para-login">Fazer Login</a></p>
+        </section>
+
+        <section id="secao-recuperar" class="auth-card style-hidden">
+            <h2>Recuperar Senha</h2>
+            <form id="form-recuperar">
+                <div class="input-group">
+                    <label for="recuperar-email">E-mail Cadastrado:</label>
+                    <input type="email" id="recuperar-email" required placeholder="seuemail@exemplo.com">
+                </div>
+                <button type="submit" class="btn-primary">Enviar Link</button>
+            </form>
+            <p class="auth-toggle" style="margin-top: 15px;">
+                <a href="#" id="voltar-da-recuperacao"><i class="fas fa-arrow-left"></i> Voltar para o Login</a>
+            </p>
+        </section>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arena Lazer - Painel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1>🏟️ Painel Arena Lazer Nacional</h1>
+                <p>Gestão Unificada de Complexos Esportivos</p>
+            </div>
+            <div class="user-info">
+                <!-- FOTO DE PERFIL DINÂMICA -->
+                <div class="profile-wrapper" id="btn-configuracoes" title="Clique para Configurações e Acessibilidade">
+                    <img id="foto-perfil-exibida" src="https://www.w3schools.com/howto/img_avatar.png" alt="Foto de Perfil" class="profile-img-header">
+                    <span id="nome-usuario-logado">Olá, Usuário</span>
+                    <i class="fas fa-cog icon-gear"></i>
+                </div>
+                <button id="btn-sair" class="btn-danger">Sair</button>
+            </div>
+        </header>
+
+        <!-- PAINEL FLUTUANTE DE CONFIGURAÇÕES E ACESSIBILIDADE -->
+        <div id="painel-config" class="config-dropdown style-hidden">
+            <h3>⚙️ Configurações & Acessibilidade</h3>
+            
+            <!-- Foto de Perfil -->
+            <div class="config-section">
+                <h4><i class="fas fa-user-circle"></i> Foto de Perfil</h4>
+                <div class="photo-options">
+                    <label for="upload-foto" class="btn-config-action">
+                        <i class="fas fa-upload"></i> Enviar Foto do Dispositivo
+                    </label>
+                    <input type="file" id="upload-foto" accept="image/*" style="display: none;">
+                    
+                    <button type="button" class="btn-config-action" id="btn-google-photos">
+                        <i class="fab fa-google"></i> Importar do Google Fotos
+                    </button>
+                    <button type="button" class="btn-config-action" id="btn-tirar-foto">
+                        <i class="fas fa-camera"></i> Tirar Foto Agora
+                    </button>
+                </div>
+            </div>
+
+            <!-- Opções de Acessibilidade e Tema -->
+            <div class="config-section">
+                <h4><i class="fas fa-universal-access"></i> Acessibilidade & Aparência</h4>
+                <div class="accessibility-options">
+                    <button type="button" class="btn-config-action" id="btn-aumentar-fonte">
+                        <i class="fas fa-text-height"></i> Aumentar Letra
+                    </button>
+                    <button type="button" class="btn-config-action" id="btn-resetar-fonte">
+                        <i class="fas fa-font"></i> Letra Normal
+                    </button>
+                    <button type="button" class="btn-config-action" id="btn-modo-escuro">
+                        <i class="fas fa-moon"></i> Modo Escuro
+                    </button>
+                    <button type="button" class="btn-config-action" id="btn-modo-claro">
+                        <i class="fas fa-sun"></i> Modo Claro
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAPA DINÂMICO -->
+        <section class="map-section">
+            <h2>🗺️ Localizador em Tempo Real</h2>
+            <p class="helper-text">Selecione um local abaixo para carregar o satélite.</p>
+            <div class="map-wrapper">
+                <iframe id="mapa-google" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14629.471415668704!2d-46.656571!3d-23.55052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" width="100%" height="380" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <main class="dashboard-main" style="margin-top: 30px;">
+            <!-- FORMULÁRIO DE RESERVA -->
+            <section class="form-section">
+                <h2>Reservar Espaço / Quadra</h2>
+                <form id="form-agendamento" autocomplete="off">
+                    <div class="input-group">
+                        <label for="responsavel">Nome do Responsável:</label>
+                        <input type="text" id="responsavel" required placeholder="Ex: Grupo do Vôlei">
+                    </div>
+
+                    <div class="input-group buscador-container">
+                        <label for="busca-regiao"><i class="fas fa-search"></i> Pesquisar Parque, Espaço ou Sede:</label>
+                        <input type="text" id="busca-regiao" required placeholder="Digite o nome do local...">
+                        <div id="lista-sugestoes" class="sugestoes-box style-hidden"></div>
+                    </div>
+
+                    <div class="input-group endereco-container">
+                        <label><i class="fas fa-map-marked-alt"></i> Endereço do Local:</label>
+                        <div id="endereco-exibido" class="endereco-box">Busque e selecione um local acima...</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="esporte">Selecione a Modalidade:</label>
+                        <select id="esporte" required>
+                            <option value="" disabled selected>Escolha o esporte...</option>
+                            <option value="Futebol">⚽ Campo de Futebol</option>
+                            <option value="Futevôlei">🏐 Quadra de Futevôlei</option>
+                            <option value="Basquete">🏀 Quadra de Basquete</option>
+                            <option value="Queimada">🏃 Quadra Poliesportiva</option>
+                            <option value="Natação">🏊 Piscina Olímpica (Natação)</option>
+                            <option value="Hidroginástica">🌊 Piscina Aquecida (Hidroginástica)</option>
+                            <option value="Ginástica Rítmica">🤸 Ginásio (Ginástica Rítmica)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="data-hora">Data e Horário:</label>
+                        <input type="datetime-local" id="data-hora" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="duracao">Duração:</label>
+                        <select id="duracao" required>
+                            <option value="1">1 hora</option>
+                            <option value="2">2 horas</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="btn-confirmar-reserva" class="btn-primary">Confirmar Reserva</button>
+                </form>
+                <div id="mensagem-sistema" class="mensagem" style="display: none; margin-top: 15px; padding: 10px; border-radius: 4px;"></div>
+            </section>
+
+            <!-- TABELA -->
+            <section class="list-section">
+                <h2>Quadro de Ocupação em Tempo Real</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data / Horário</th>
+                                <th>Local / Esporte</th>
+                                <th>Responsável</th>
+                                <th>Comprovante</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-agendamentos"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- MODAL 1: COMPROVANTE DIGITAL (CORRIGIDO) -->
+    <div id="modal-comprovante" class="modal-novo" style="display: none;">
+        <div class="modal-content-novo">
+            <span class="close-modal-novo" id="fechar-modal">&times;</span>
+            <div class="ticket-header-novo">
+                <h3>🎟️ COMPROVANTE DE RESERVA</h3>
+                <p>Arena Lazer S/A</p>
+            </div>
+            <div class="ticket-body-novo">
+                <p><strong>Responsável:</strong> <span id="comp-responsavel"></span></p>
+                <p><strong>Esporte:</strong> <span id="comp-esporte"></span></p>
+                <p><strong>Local/Campus:</strong> <span id="comp-local"></span></p>
+                <p><strong>Endereço:</strong> <span id="comp-endereco"></span></p>
+                <p><strong>Data/Hora:</strong> <span id="comp-data"></span></p>
+                <p><strong>Duração:</strong> <span id="comp-duracao"></span> hora(s)</p>
+            </div>
+            <div class="share-actions-novo">
+                <button class="btn-share-novo pdf" id="share-pdf">Imprimir</button>
+                <button class="btn-share-novo whatsapp" id="share-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: INTERFACE DO GOOGLE FOTOS -->
+    <div id="modal-google-photos" class="modal style-hidden">
+        <div class="modal-content" style="max-width: 450px;">
+            <span class="close-modal" id="fechar-modal-fotos">×</span>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <i class="fab fa-google" style="font-size: 2.5rem; color: #4285F4; margin-bottom: 10px;"></i>
+                <h3 style="color: #1e3c72; font-size: 1.3rem;">Sincronizar Google Fotos</h3>
+                <p style="color: #64748b; font-size: 0.9rem; margin-top: 5px;">Cole o link partilhado da sua foto para atualizar o perfil com conforto e segurança.</p>
+            </div>
+            
+            <div class="input-group" style="margin-bottom: 20px;">
+                <label for="input-url-fotos" style="font-weight: bold; font-size: 0.85rem; color: #334155;">Link da Imagem:</label>
+                <input type="text" id="input-url-fotos" placeholder="http://googleusercontent.com/photos.google.com/... ou link da web" style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px;">
+            </div>
+
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button type="button" id="btn-cancelar-fotos" style="background: #e2e8f0; color: #475569; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; font-weight: bold;">Cancelar</button>
+                <button type="button" id="btn-confirmar-fotos" style="background: #4285F4; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold;"><i class="fas fa-sync-alt"></i> Salvar Foto</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

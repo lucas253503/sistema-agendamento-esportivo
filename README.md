@@ -12,8 +12,7 @@ O sistema foi construído utilizando a tríade fundamental do desenvolvimento Fr
 .JavaScript ES6+ (Lógica e Persistência): É o cérebro da aplicação. Ele escuta as ações do usuário, processa as regras de negócio e renderiza as respostas na tela de forma dinâmica.
 
 
-.⚙️ Funcionalidades e Regras de Negócio Explicadas
-
+.⚙️ Funcionalidades e Regras de Negócio Explicadas:
 .Captura Dinâmica de Dados: O JavaScript monitora o evento de envio (`submit`) do formulário. Quando o usuário escolhe o esporte, o dia e o horário, o script captura esses valores manipulando o DOM (Document Object Model).
 .Persistência Local (LocalStorage): Como o projeto não utiliza um banco de dados no servidor (Back-end), foi implementada a API do `localStorage`. Isso significa que os agendamentos feitos ficam salvos na memória do navegador do usuário. Mesmo se a página for atualizada ou fechada, os dados não são perdidos.
 .Tratamento de Eventos e Feedback: O sistema valida se todos os campos foram preenchidos corretamente e exibe alertas de confirmação para o usuário, garantindo uma excelente experiência de uso (UX).
